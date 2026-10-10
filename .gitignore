@@ -1,0 +1,4 @@
+.env
+data/stories.json
+data/uploads/
+*.tmp

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Content dashboard — DiscoverGB.pk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <header class="admin-header">
+    <a class="admin-brand" href="/"><span aria-hidden="true">◈</span> DiscoverGB.pk <small>STORY DASHBOARD</small></a>
+    <a class="view-site" href="/">View website <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main class="admin-main">
+    <section class="login-panel" id="login-panel">
+      <p class="eyebrow">PRIVATE CONTENT DASHBOARD</p>
+      <h1>Welcome back.</h1>
+      <p class="intro">Sign in to publish travel stories, videos, and destination guides.</p>
+      <form id="login-form">
+        <label for="login-password">Admin password</label>
+        <input id="login-password" name="password" type="password" autocomplete="current-password" required minlength="12">
+        <button class="primary-button" type="submit">Sign in <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="dashboard-heading">
+        <div><p class="eyebrow">DISCOVERGB.PK · CONTENT</p><h1>Your stories.</h1><p class="intro">Create travel guides and videos to share with visitors.</p></div>
+        <button class="secondary-button" id="logout-button" type="button">Sign out</button>
+      </div>
+      <div class="dashboard-grid">
+        <section class="editor-panel">
+          <div class="editor-heading"><h2 id="form-heading">New story</h2><button id="cancel-edit" class="cancel-button" type="button" hidden>Cancel edit</button></div>
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+          <form id="story-form">
+            <label for="title">Story title <span>*</span></label>
+            <input id="title" name="title" maxlength="140" required>
+
+            <label for="slug">Page address <small>optional; made from the title if blank</small></label>
+            <input id="slug" name="slug" maxlength="100" placeholder="hunza-valley-travel-guide">
+
+            <div class="form-row">
+              <div><label for="category">Story type <span>*</span></label><select id="category" name="category" required><option value="guide">Photo guide</option><option value="video">Travel video</option></select></div>
+              <div><label for="location">Place <span>*</span></label><input id="location" name="location" maxlength="80" placeholder="Hunza Valley" required></div>
+            </div>
+
+            <label for="excerpt">Short introduction <span>*</span></label>
+            <textarea id="excerpt" name="excerpt" rows="2" maxlength="300" required placeholder="A short summary shown on the homepage"></textarea>
+
+            <label for="image">Cover image URL <small>required unless you upload a cover photo</small></label>
+            <input id="image" name="image" type="url" placeholder="https://…">
+            <label for="image-file" class="file-label">Or upload a cover photo <small>JPG, PNG, or WebP · up to 8 MB</small></label>
+            <input id="image-file" name="imageFile" type="file" accept="image/jpeg,image/png,image/webp">
+            <img class="image-preview" id="image-preview" alt="Selected cover preview" hidden>
+
+            <label for="video">YouTube or Vimeo link <small>required for video stories</small></label>
+            <input id="video" name="video" type="url" placeholder="https://www.youtube.com/watch?v=…">
+
+            <label for="read-time">Estimated time <span>*</span></label>
+            <input id="read-time" name="readTime" maxlength="40" placeholder="6 min read" required>
+
+            <label for="content">Full story <span>*</span> <small>Separate paragraphs with a blank line</small></label>
+            <textarea id="content" name="content" rows="10" maxlength="20000" required placeholder="Share your travel story, route advice, places to visit, and tips for other travellers…"></textarea>
+
+            <label class="publish-control"><input id="published" name="published" type="checkbox" checked> Publish this story on the website</label>
+            <button class="primary-button save-button" type="submit">Save story <span aria-hidden="true">→</span></button>
+          </form>
+        </section>
+
+        <section class="story-list-panel">
+          <div class="list-heading"><div><p class="eyebrow">YOUR CONTENT</p><h2>Stories <span id="total-count">0</span></h2></div></div>
+          <p id="list-message" class="list-message" role="status" aria-live="polite"></p>
+          <div id="story-list" class="story-list"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="admin-footer"><a href="/">← Back to DiscoverGB.pk</a><span>Only publish travel details you have checked.</span></footer>
+</body>
+</html>
